@@ -1,6 +1,6 @@
-FROM golang:1.21.3
-COPY . /go/src/github.com/keel-hq/keel
-WORKDIR /go/src/github.com/keel-hq/keel
+FROM golang:1.22.1
+COPY . /go/src/github.com/datagravity-ai/keel
+WORKDIR /go/src/github.com/datagravity-ai/keel
 RUN make install
 
 FROM node:16.20.2-alpine
