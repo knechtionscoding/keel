@@ -1,4 +1,4 @@
-FROM golang:1.22.1
+FROM golang:1.22.4
 COPY . /go/src/github.com/datagravity-ai/keel
 WORKDIR /go/src/github.com/datagravity-ai/keel
 RUN make install
@@ -11,6 +11,10 @@ RUN yarn run lint --no-fix
 RUN yarn run build
 
 FROM alpine:latest
+LABEL name="keel"
+LABEL org.opencontainers.image.description Kubernetes Operator to automate Helm, DaemonSet, StatefulSet & Deployment updates
+
+
 RUN apk --no-cache add ca-certificates
 
 VOLUME /data
