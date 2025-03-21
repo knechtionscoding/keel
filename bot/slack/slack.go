@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/keel-hq/keel/bot"
-	"github.com/keel-hq/keel/constants"
+	"github.com/datagravity-ai/keel/bot"
+	"github.com/datagravity-ai/keel/constants"
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"
 	"github.com/slack-go/slack/socketmode"
@@ -323,6 +323,7 @@ func (b *Bot) postApprovalMessageBlock(approvalId string, blocks slack.Blocks) e
 		createApprovalMetadata(approvalId),
 	)
 
+
 	return err
 }
 
@@ -366,6 +367,7 @@ func (b *Bot) upsertApprovalMessage(approvalId string, blocks slack.Blocks) {
 		log.Debugf("Unable to get the conversation history to edit the message, post new one: %v", err)
 		b.postApprovalMessageBlock(approvalId, blocks)
 	}
+
 
 	// Find the message to update; the channel id and the message timestamp is the identifier of a message for slack
 	var messageTs string
